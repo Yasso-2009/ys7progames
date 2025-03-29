@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YS7-PRO GAMES Countdown</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Linking external CSS -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YS7-PRO GAMES Countdown</h1>
+        </header>
+        <main>
+            <div class="countdown">
+                Time Remaining: <span id="countdown-timer">Calculating...</span>
+            </div>
+        </main>
+    </div>
+
+    <p><center>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vWG2GQIPOZU?si=Jkw1RZQcqQ5Uk2iE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </center></p>
+
+    <footer>
+        <p>&copy; 2025 YS7-PRO GAMES. All rights reserved.</p>
+    </footer>
+    <script>
+        // Countdown timer script
+        function updateCountdown() {
+            const targetDate = new Date('2025-04-03T00:00:00'); // Target date
+            const now = new Date(); // Current time
+            const difference = targetDate.getTime() - now.getTime(); // Calculate time difference
+
+            if (difference <= 0) {
+                document.getElementById('countdown-timer').textContent = "The countdown is over!";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown-timer').textContent =
+                `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
